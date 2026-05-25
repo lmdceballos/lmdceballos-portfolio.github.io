@@ -41,13 +41,13 @@ body {
 }
 
 .resume-header .subtitle {
+    text-align: center;
     font-size: 16px;
     font-weight: 500;
     color: var(--light-text);
     margin-top: 4px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    text-align: center;
+    letter-spacing: 1px;    
 }
 
 .contact-info {
