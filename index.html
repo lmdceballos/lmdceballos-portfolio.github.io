@@ -308,14 +308,6 @@
             box-shadow: 0 20px 60px rgba(11, 126, 185, 0.15);
             position: relative;
             margin-bottom: 40px;
-            overflow: hidden;
-            border: 5px solid white;
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .profile-image svg {
@@ -644,99 +636,6 @@
             }
         }
 
-        /* Project Images and Gallery */
-        .project-image {
-            width: 100%;
-            height: 300px;
-            background: #f0f0f0;
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-
-        .project-card.with-image {
-            overflow: hidden;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card.with-image > div:last-child {
-            padding: 35px;
-        }
-
-        .gallery-section {
-            margin: 80px 0;
-            padding: 60px;
-            background: linear-gradient(180deg, white 0%, var(--light-bg) 100%);
-            border-radius: 20px;
-        }
-
-        .gallery-section h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--dark-text);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .gallery-item {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            box-shadow: 0 20px 60px rgba(11, 126, 185, 0.15);
-            transform: translateY(-8px);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-item-description {
-            padding: 20px;
-        }
-
-        .gallery-item-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 10px;
-        }
-
-        .gallery-item-text {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
         /* ===== UTILITIES ===== */
         .container {
             max-width: 1200px;
@@ -816,7 +715,10 @@
 
         <div class="profile-right">
             <div class="profile-image">
-                <img src="./img/profile-photo.jpg" alt="Leo Maria Ceballos">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="40" r="20" fill="white" opacity="0.3"/>
+                    <ellipse cx="50" cy="70" rx="25" ry="20" fill="white" opacity="0.2"/>
+                </svg>
             </div>
             <div class="soft-skills">
                 <h3>Soft Skills Highlight</h3>
@@ -856,24 +758,14 @@
         <p class="projects-intro">Delivering measurable impact through strategic digitalization, automation, and data-driven solutions. Each project demonstrates expertise in transforming manual processes into efficient, scalable systems.</p>
 
         <div class="projects-grid">
-            <div class="project-card with-image">
-                <div class="project-image">
-                    <img src="./img/project-1-dte.png" alt="DTE Dashboard">
-                </div>
-                <div>
-                    <h3>DTE Dashboard Development</h3>
-                    <p>Led UAT for digitalized customer contracts and database management, significantly improving operational efficiency and stakeholder visibility across the organization.</p>
-                </div>
+            <div class="project-card">
+                <h3>Route-To-Market Platform UAT Leadership</h3>
+                <p>Led UAT for digitalized customer contracts and database management, significantly improving operational efficiency and stakeholder visibility across the organization.</p>
             </div>
 
-            <div class="project-card with-image">
-                <div class="project-image">
-                    <img src="./img/project-2-amd.png" alt="AMD Activation Monitoring">
-                </div>
-                <div>
-                    <h3>Activation Monitoring System</h3>
-                    <p>Standardized incentive program processes, saving significant back-office time while ensuring full audit compliance and reporting accuracy.</p>
-                </div>
+            <div class="project-card">
+                <h3>Trade Program Audit Streamlining</h3>
+                <p>Standardized incentive program processes, saving significant back-office time while ensuring full audit compliance and reporting accuracy.</p>
             </div>
 
             <div class="project-card">
@@ -884,37 +776,6 @@
             <div class="project-card">
                 <h3>Census Program Digitalization</h3>
                 <p>Shortened project delivery by 55% through innovative data structure design and operational planning, demonstrating strong analytical capabilities.</p>
-            </div>
-        </div>
-
-        <!-- Dashboard Gallery -->
-        <div class="gallery-section">
-            <h3>Professional Dashboard & System Gallery</h3>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="./img/dtedash.png" alt="DTE Dashboard - December 2025">
-                    <div class="gallery-item-description">
-                        <div class="gallery-item-title">DTE Dashboard</div>
-                        <div class="gallery-item-text">Comprehensive real-time monitoring dashboard for E-Ordering, DTE Task, SAWA metrics, and NPS scoring. Includes automated reporting and multi-dimensional filtering capabilities.</div>
-                    </div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="./img/amddash.png" alt="Activation Monitoring Dashboard">
-                    <div class="gallery-item-description">
-                        <div class="gallery-item-title">Activation Monitoring Dashboard</div>
-                        <div class="gallery-item-text">Market deployment tracking system showing POS unit distribution, visual segmentation analysis, and area-wise performance metrics across multiple channels.</div>
-                    </div>
-                </div>
-
-                <div class="gallery-item">
-                    <img src="./img/batchcompiler.png" alt="Batch Compiler System">
-                    <div class="gallery-item-description">
-                        <div class="gallery-item-title">Batch Compiler & Data Upload</div>
-                        <div class="gallery-item-text">Enterprise data management system for batch processing, product auditing, and automated data upload templates with comprehensive brand and SKU tracking.</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
