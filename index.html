@@ -3,204 +3,982 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leo Maria Diaz Ceballos - Senior Business Analyst Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Leo Maria Ceballos - Senior Business Analyst Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a3a52;
+            --primary-blue: #0b7eb9;
+            --accent-teal: #00a8d8;
+            --light-bg: #f5f8fa;
+            --dark-text: #1a1a1a;
+            --light-text: #ffffff;
+            --border-color: #e0e8f0;
+            --success-checkmark: #00a8d8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark-text);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER & HERO ===== */
+        header {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%230b7eb9;stop-opacity:0.15"/><stop offset="100%" style="stop-color:%231a3a52;stop-opacity:0.3"/></linearGradient></defs><polygon points="0,0 300,200 500,0 500,600" fill="url(%23grad1)"/><polygon points="200,400 500,300 500,800 100,800" fill="%231a3a52" opacity="0.08"/><rect x="350" y="200" width="80" height="80" fill="%230b7eb9" opacity="0.1" transform="rotate(45 390 240)"/><rect x="380" y="280" width="60" height="60" fill="%231a3a52" opacity="0.15" transform="rotate(45 410 310)"/></svg>') no-repeat;
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-left h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            color: var(--dark-text);
+            letter-spacing: -0.02em;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .hero-left h1 span {
+            display: block;
+            color: var(--primary-blue);
+        }
+
+        .hero-left .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-left .location {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 1.05rem;
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .location-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .hero-right {
+            position: relative;
+            height: 500px;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        .geometric-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.15;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-blue);
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            top: -50px;
+            right: 50px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary-dark);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            bottom: 100px;
+            right: 200px;
+            animation: float 8s ease-in-out infinite 1s;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        nav .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: -0.02em;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== PROFILE SECTION ===== */
+        section.profile {
+            padding: 100px 60px;
+            background: var(--light-bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .profile-left h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+            line-height: 1.2;
+        }
+
+        .profile-left p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .competencies {
+            margin-bottom: 50px;
+        }
+
+        .competency-block {
+            margin-bottom: 25px;
+        }
+
+        .competency-block strong {
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .competency-block p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .profile-right {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(11, 126, 185, 0.15);
+            position: relative;
+            margin-bottom: 40px;
+            overflow: hidden;
+            border: 5px solid white;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-image svg {
+            width: 80%;
+            height: 80%;
+        }
+
+        .soft-skills {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            max-width: 350px;
+        }
+
+        .soft-skills h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .soft-skills p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ===== CAREER SECTION ===== */
+        section.career {
+            padding: 100px 60px;
+            background: white;
+        }
+
+        section.career h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            color: var(--dark-text);
+        }
+
+        .career-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .career-item {
+            position: relative;
+            padding-left: 50px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .career-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .career-item h3 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .career-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== PROJECTS SECTION ===== */
+        section.projects {
+            padding: 100px 60px;
+            background: linear-gradient(180deg, var(--light-bg) 0%, white 100%);
+        }
+
+        section.projects h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+
+        .projects-intro {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 60px;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 20px 60px rgba(11, 126, 185, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .project-card h3::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        section.contact {
+            padding: 100px 60px;
+            background: var(--primary-dark);
+            color: var(--light-text);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section.contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        section.contact h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .contact-item a {
+            color: var(--accent-teal);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0f2a3a;
+            color: var(--light-text);
+            padding: 40px 60px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content,
+            section.profile,
+            .career-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-left h1 {
+                font-size: 3rem;
+            }
+
+            nav .nav-links {
+                gap: 20px;
+            }
+
+            section.projects {
+                padding: 80px 40px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header, section, nav {
+                padding: 0 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-left h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+
+            header {
+                height: auto;
+                min-height: 80vh;
+                padding-top: 80px;
+            }
+
+            section {
+                padding: 60px 20px !important;
+            }
+
+            .hero-content,
+            section.profile,
+            .career-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .profile-left h2 {
+                font-size: 2rem;
+            }
+
+            .soft-skills {
+                position: static;
+                max-width: 100%;
+                margin-top: 30px;
+            }
+
+            .hero-right {
+                height: 300px;
+            }
+
+            .shape-1 {
+                width: 200px;
+                height: 200px;
+            }
+
+            .shape-2 {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Project Images and Gallery */
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-card.with-image {
+            overflow: hidden;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card.with-image > div:last-child {
+            padding: 35px;
+        }
+
+        .gallery-section {
+            margin: 80px 0;
+            padding: 60px;
+            background: linear-gradient(180deg, white 0%, var(--light-bg) 100%);
+            border-radius: 20px;
+        }
+
+        .gallery-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 20px 60px rgba(11, 126, 185, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item-description {
+            padding: 20px;
+        }
+
+        .gallery-item-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .gallery-item-text {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Smooth scroll behavior */
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">LMC</div>
+        <ul class="nav-links">
+            <li><a href="#profile">About</a></li>
+            <li><a href="#career">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <header class="resume-header">
-        <h1>Leo Maria Diaz Ceballos</h1>
-        <p class="subtitle">Senior Business Analyst</p>
-        <div class="contact-info">
-            <span>Riyadh, Saudi Arabia</span> | 
-            <span><a href="https://github.com/lmdceballos/lmdceballos-portfolio.github.io" target="_blank">GitHub Portfolio</a></span>
+    <!-- Hero Section -->
+    <header>
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1>
+                    2026
+                    <span>SENIOR BUSINESS ANALYST PORTFOLIO</span>
+                </h1>
+                <p class="subtitle">Professional Portfolio</p>
+                <div class="location">
+                    <div class="location-icon">📍</div>
+                    <span>Riyadh, Saudi Arabia</span>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="geometric-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="container">
+    <!-- Profile Section -->
+    <section id="profile" class="profile">
+        <div class="profile-left">
+            <h2>Professional Profile and Core Competencies</h2>
+            
+            <p>Experienced Senior Business Analyst with strong business acumen and data-driven decision-making skills. Proven ability in project delivery, workflow optimization, data management, and automation.</p>
+
+            <div class="competencies">
+                <div class="competency-block">
+                    <strong>Core Competencies:</strong>
+                    <p>Project Delivery Management, Business Data Analysis, Dashboard Reporting, AI Workflow Automation</p>
+                </div>
+
+                <div class="competency-block">
+                    <strong>Technical Skills:</strong>
+                    <p>Advanced Excel, Power BI, Power Automate, n8n, SQL, Python fundamentals, ETL</p>
+                </div>
+
+                <div class="competency-block">
+                    <strong>Enterprise Platforms:</strong>
+                    <p>Salesforce, SAP, Dynamics 365, Oracle Business Objects</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-right">
+            <div class="profile-image">
+                <img src="./img/profile-photo.jpg" alt="Leo Maria Ceballos">
+            </div>
+            <div class="soft-skills">
+                <h3>Soft Skills Highlight</h3>
+                <p>Detail-oriented, resourceful, hardworking, and loyal professional. Skilled in coordination, stakeholder alignment, and cross-functional collaboration to drive business success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section id="career" class="career">
+        <h2>Career Highlights and Roles</h2>
         
-        <section class="summary-section">
-            <p>Result-driven and highly analytical professional with over 21 years of robust experience spanning business analysis, reporting, workflow automation, and data operations across banking, trade, and fast-moving consumer goods (FMCG). Adept at transforming fragmented data ecosystems into clean, automated architectures and interactive dashboards that eliminate operational lags and ground business strategy in clear facts. Natural problem solver who excels in the discovery phase of identifying systemic operational gaps and building the foundational, low-code integration frameworks required to scale business performance.</p>
-        </section>
+        <div class="career-grid">
+            <div class="career-item">
+                <h3>E-commerce Backend Analyst</h3>
+                <p><strong>Harvey Nichols (2025–Present):</strong> Automated 90% of manual product data encoding, maximized Power BI for accurate audits, initiated customer journey analytics.</p>
+            </div>
 
-        <hr>
+            <div class="career-item">
+                <h3>Senior Business Support Supervisor</h3>
+                <p><strong>Gulf Taleed (2011–2025):</strong> Led digitalization of trade programs, developed real-time tracking tools, managed global teams with high KPI and SLA compliance.</p>
+            </div>
 
-        <section class="skills-section">
-            <h2>Core Competencies & Technical Skills</h2>
-            <div class="skills-grid">
+            <div class="career-item">
+                <h3>Earlier Roles</h3>
+                <p>Bid Manager and Bookkeeper positions demonstrating strong analytical capabilities, financial acumen, and cross-functional coordination skills.</p>
+            </div>
+        </div>
+
+        <p style="font-size: 1.1rem; color: #555; line-height: 1.8; max-width: 800px;">A proven track record of driving business transformation through data-driven analysis, process automation, and strategic project delivery across e-commerce and enterprise environments.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Key Projects and Accomplishments</h2>
+        
+        <p class="projects-intro">Delivering measurable impact through strategic digitalization, automation, and data-driven solutions. Each project demonstrates expertise in transforming manual processes into efficient, scalable systems.</p>
+
+        <div class="projects-grid">
+            <div class="project-card with-image">
+                <div class="project-image">
+                    <img src="./img/project-1-dte.png" alt="DTE Dashboard">
+                </div>
                 <div>
-                    <h3>Hard Skills</h3>
-                    <p>Advanced Excel, Power BI, Microsoft Power Automate, PowerPoint, Canva, Microsoft Word, SQL Fundamentals, Python Fundamentals, n8n.io, ETL, Power Query, Power Pivot, Visual Basics Fundamentals, Visual Studio</p>
+                    <h3>DTE Dashboard Development</h3>
+                    <p>Led UAT for digitalized customer contracts and database management, significantly improving operational efficiency and stakeholder visibility across the organization.</p>
+                </div>
+            </div>
+
+            <div class="project-card with-image">
+                <div class="project-image">
+                    <img src="./img/project-2-amd.png" alt="AMD Activation Monitoring">
                 </div>
                 <div>
-                    <h3>Enterprise Platform Exposure</h3>
-                    <p>Salesforce (CRM), SAP, Dynamics 365 (Warehouse and Finance), Dynamics Business Centers, Fulcrum, Oracle Business Objects, NewsPage, Lime Survey, GSMS</p>
-                </div>
-                <div>
-                    <h3>Soft Skills</h3>
-                    <p>Project Delivery Management, Business Data Analysis, Data Management, Data Visualizations, Dashboard Reporting, Workflow Optimization, AI Workflow Automation, Detail-Oriented, Coordination Competence, Business Acumen, Resourcefulness, Corporate Loyalty, High-Output Execution</p>
+                    <h3>Activation Monitoring System</h3>
+                    <p>Standardized incentive program processes, saving significant back-office time while ensuring full audit compliance and reporting accuracy.</p>
                 </div>
             </div>
-        </section>
 
-        <hr>
+            <div class="project-card">
+                <h3>Power BI Dashboard Automation</h3>
+                <p>Replaced manual reporting with real-time Power BI dashboards for B2B retail execution metrics, enabling instant data-driven decision making.</p>
+            </div>
 
-        <section class="experience-section">
-            <h2>Professional Experience</h2>
+            <div class="project-card">
+                <h3>Census Program Digitalization</h3>
+                <p>Shortened project delivery by 55% through innovative data structure design and operational planning, demonstrating strong analytical capabilities.</p>
+            </div>
+        </div>
 
-            <!-- Role 1 -->
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">E-commerce Backend Analyst</span>, <span class="company">Harvey Nichols</span>
-                        <div class="location">Riyadh, Saudi Arabia</div>
+        <!-- Dashboard Gallery -->
+        <div class="gallery-section">
+            <h3>Professional Dashboard & System Gallery</h3>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="./img/dtedash.png" alt="DTE Dashboard - December 2025">
+                    <div class="gallery-item-description">
+                        <div class="gallery-item-title">DTE Dashboard</div>
+                        <div class="gallery-item-text">Comprehensive real-time monitoring dashboard for E-Ordering, DTE Task, SAWA metrics, and NPS scoring. Includes automated reporting and multi-dimensional filtering capabilities.</div>
                     </div>
-                    <span class="date">10/2025 – Present</span>
                 </div>
-                
-                <h4>Standard Roles</h4>
-                <ul>
-                    <li>Oversee product data integrity and master data management to guarantee that all SKUs are processed accurately and published on schedule to the live production website.</li>
-                    <li>Extract and compile raw transaction and inventory data from SAP and Dynamics Business Centers, feeding it directly into Power BI pipelines for systematic pre-deployment audits.</li>
-                    <li>Monitor and resolve transactional bottlenecks within the order-to-cash workflow, targeting and correcting payment, system integration, or layout errors.</li>
-                    <li>Troubleshoot backend technical requests and support tickets within strict SLA timelines, maintaining a high first-contact resolution rate.</li>
-                    <li>Track core service uptimes and complete all scheduled systems health checks to maintain platform operational continuity.</li>
-                </ul>
 
-                <h4>Key Projects & Accomplishments</h4>
-                <ul>
-                    <li>Automated 90% of the manual encoding processes for new product releases received from the logistics, brand, and marketing teams, which sped up production website updates significantly.</li>
-                    <li>Maximized the analytical capabilities of Power BI and Power Query to turn them into an advanced validation filter, streamlining production data processing and completely removing redundant tasks.</li>
-                    <li>Aligned regular product audits across cross-functional teams, confirming that live product listings matched current inventory levels and accurately reflected promotional or retail pricing matrices.</li>
-                    <li>Initiated the company's customer journey tracking frameworks and performance analytics, providing executive leadership with clear data to guide strategic choices.</li>
-                </ul>
-            </div>
-
-            <!-- Role 2 -->
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Senior Business Support Supervisor</span>, <span class="company">Gulf Taleed Commercial Services Company</span>
-                        <div class="location">Riyadh, Saudi Arabia</div>
+                <div class="gallery-item">
+                    <img src="./img/amddash.png" alt="Activation Monitoring Dashboard">
+                    <div class="gallery-item-description">
+                        <div class="gallery-item-title">Activation Monitoring Dashboard</div>
+                        <div class="gallery-item-text">Market deployment tracking system showing POS unit distribution, visual segmentation analysis, and area-wise performance metrics across multiple channels.</div>
                     </div>
-                    <span class="date">12/2011 – 09/2025</span>
                 </div>
-                
-                <h4>Standard Roles</h4>
-                <ul>
-                    <li>Directed comprehensive backend operations and CRM database configurations for Key Account, Wholesale, Tobacconist, and General Trade distributions, managing e-ordering platforms and client payouts.</li>
-                    <li>Consolidated fragmented regional customer data across multiple corporate branches using a mix of Excel spreadsheets and enterprise platforms like Salesforce, Fulcrum, and Route-to-Market tools.</li>
-                    <li>Evaluated Philip Morris International in-market commercial metrics across all contracted points of sale, translating raw numbers into functional updates for leadership teams.</li>
-                    <li>Administered regional logistics and field route structures, building e-ordering delivery calendars, managing account onboarding, and reviewing salesman route efficiency layouts.</li>
-                    <li>Supervised the Global Business Solutions teams across Turkey and the Philippines, keeping monthly business KPIs at a stable 85% average while guiding individuals to meet or exceed strict SLA goals.</li>
-                </ul>
 
-                <h4>Key Projects & Accomplishments</h4>
-                <ul>
-                    <li>Led the end-to-end backend design, functionality scoping, and User Acceptance Testing (UAT) for the Route-To-Market digital transformation, shifting asset tracking, contract frameworks, and customer lists to a digital structure.</li>
-                    <li>Built a real-time deployment tracker for points of sale and marketing campaigns that embedded live execution images, giving regional and global managers immediate operational visibility and erasing legacy reporting delays.</li>
-                    <li>Replaced traditional reporting cadences with fully automated Power BI and Excel dashboards, providing real-time metrics on market share, out-of-stock figures, digital engagement, and e-ordering trends directly to the Field Execution Director.</li>
-                    <li>Headed the operational delivery and financial administration of various B2B trade incentives across distribution channels, handling complex cross-functional alignments, audit-proof payout schedules, and quarterly budget requests.</li>
-                    <li>Recognized as a top corporate performer for restructuring the unstructured tracking, accounting, and reporting workflows of major Trade Initiatives including the Mystery Shopper and Retail Advocacy programs, creating an audit-proof system that saved hours of work and was scaled up globally.</li>
-                    <li>Co-led the digitalization of the Census program, structuring its database and operational timeline, which shortened project delivery times by 55% (from 90 days down to 40) while avoiding any extra software deployment costs.</li>
-                </ul>
-            </div>
-
-            <!-- Role 3 -->
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Bid Manager / Bookkeeper</span>, <span class="company">Saudi Intelligent Solutions</span>
-                        <div class="location">Riyadh, Saudi Arabia</div>
+                <div class="gallery-item">
+                    <img src="./img/batchcompiler.png" alt="Batch Compiler System">
+                    <div class="gallery-item-description">
+                        <div class="gallery-item-title">Batch Compiler & Data Upload</div>
+                        <div class="gallery-item-text">Enterprise data management system for batch processing, product auditing, and automated data upload templates with comprehensive brand and SKU tracking.</div>
                     </div>
-                    <span class="date">04/2010 – 11/2011</span>
-                </div>
-                
-                <h4>Standard Roles</h4>
-                <ul>
-                    <li>Assisted the business development department by tracking, organizing, and completing complex vendor onboarding and documentation requirements.</li>
-                    <li>Sourced, screened, and qualified prospective corporate B2B clients to expand the commercial sales pipeline.</li>
-                    <li>Formulated clear cost structures and detailed price proposals used by account teams during formal project biddings.</li>
-                    <li>Managed accounts payable workflows, maintained strict oversight over departmental budget variances, and assisted with internal financial forecasting models.</li>
-                    <li>Executed standard accounting processes, including invoice ledger balances, account allocations, payroll support, petty cash processing, and diligent collections follow-up on accounts receivable.</li>
-                </ul>
-            </div>
-
-            <!-- Role 4 -->
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Accounting Officer</span>, <span class="company">Almarai Company</span>
-                        <div class="location">Riyadh, Saudi Arabia</div>
-                    </div>
-                    <span class="date">09/2006 – 12/2009</span>
-                </div>
-                
-                <h4>Standard Roles</h4>
-                <ul>
-                    <li>Fielded and resolved corporate vendor inquiries regarding payment statuses using the Customer Information Support System portal.</li>
-                    <li>Monitored outstanding corporate work orders and cross-referenced statement alignments directly between procurement accounts and external suppliers.</li>
-                    <li>Maintained current bank documentation for corporate buyers and supply partners to guarantee error-free financial transaction records.</li>
-                    <li>Reconciled account balances, parked and posted incoming invoices, and executed quality control audits on ledger records.</li>
-                    <li>Issued cyclic high-volume corporate payments via bank transfers, demand drafts, checks, and telex methods, assuring all authorizations matched internal corporate governance rules.</li>
-                </ul>
-            </div>
-
-            <!-- Role 5 -->
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Universal Bank Teller</span>, <span class="company">Allied Banking Corporation</span>
-                        <div class="location">Manila, Philippines</div>
-                    </div>
-                    <span class="date">10/2004 – 06/2006</span>
-                </div>
-                
-                <h4>Standard Roles</h4>
-                <ul>
-                    <li>Processed multi-currency cash and check deposits, savings account updates, and large withdrawals with high mathematical precision.</li>
-                    <li>Maintained daily balanced drawer operations, verifying that every physical asset accurately matched local system transaction logs.</li>
-                    <li>Performed thorough end-of-day ledger closings to uphold transparent corporate banking compliance standards.</li>
-                    <li>Served as a main customer service touchpoint, building rapport with depositors and introducing relevant financial service promotions.</li>
-                </ul>
-            </div>
-        </section>
-
-        <hr>
-
-        <section class="education-section">
-            <h2>Education & Credentials</h2>
-            <div class="job-block">
-                <div class="job-header">
-                    <div>
-                        <span class="job-title">Bachelor of Science in Business Administration</span>, <span class="company">Major in Management</span>
-                        <div class="location">Colegio de San Juan de Letran, Manila, Philippines</div>
-                    </div>
-                    <span class="date">06/2000 – 03/2004</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <hr>
-
-        <section class="portfolio-section">
-            <h2>Project References & Portfolios</h2>
-            <div class="portfolio-grid">
-                <a href="https://bit.ly/3WKaaaL" target="_blank" class="portfolio-card">Role Portfolio</a>
-                <a href="https://bit.ly/4d7xsAW" target="_blank" class="portfolio-card">DTE Programs Dashboard</a>
-                <a href="https://bit.ly/4c97fkr" target="_blank" class="portfolio-card">PBI Dashboard</a>
-                <a href="https://bit.ly/3Nx2gAN" target="_blank" class="portfolio-card">Lead Generation Program</a>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <a href="mailto:lmdceballos@gmail.com">lmdceballos@gmail.com</a>
             </div>
-        </section>
+            <div class="contact-item">
+                <span>📱</span>
+                <a href="tel:+966561972822">+966 56 197 2822</a>
+            </div>
+            <div class="contact-item">
+                <span>💼</span>
+                <a href="https://linkedin.com" target="_blank">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
 
-    </div>
-
-    <footer class="resume-footer">
-        <p>&copy; 2026 Leo Maria Diaz Ceballos. Executive Portfolio.</p>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Leo Maria Ceballos. Senior Business Analyst Portfolio. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Stagger animation on cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `fadeInUp 0.6s ease-out forwards`;
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card, .career-item').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
